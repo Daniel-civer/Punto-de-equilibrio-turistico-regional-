@@ -1,0 +1,85 @@
+[2026-11-20 21:51:13] === INICIO DE EXTRACCIÓN VÍA 1: APIs PROGRAMÁTICAS ===
+[2026-11-20 21:51:13] Consultando BCRPData API: https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01270PM-PN01288PM-PN01770AM/json/2013-1/2025-12
+[2026-11-20 21:51:14] Respuesta BCRPData: HTTP 200
+[2026-11-20 21:51:14] BCRPData exitoso: 156 periodos mensuales descargados.
+[2026-11-20 21:51:14] Consultando Banco Mundial API: https://api.worldbank.org/v2/country/PER/indicator/ST.INT.ARVL?format=json&per_page=100
+[2026-11-20 21:51:16] Respuesta Banco Mundial: HTTP 200
+[2026-11-20 21:51:16] Banco Mundial exitoso: 66 observaciones anuales obtenidas.
+[2026-11-20 21:51:16] Consultando Banco Mundial API: https://api.worldbank.org/v2/country/PER/indicator/ST.INT.RCPT.CD?format=json&per_page=100
+[2026-11-20 21:51:17] Respuesta Banco Mundial: HTTP 200
+[2026-11-20 21:51:17] Banco Mundial exitoso: 66 observaciones anuales obtenidas.
+[2026-11-20 21:51:17] Archivo crudo guardado exitosamente en: datos_crudos_api.json
+[2026-11-20 21:51:17] Resumen de registros descargados: BCRP=156 meses | Banco Mundial=132 registros
+[2026-11-20 21:51:17] === FIN DE EXTRACCIÓN VÍA 1 ===
+[2026-11-20 21:51:36] === INICIO DE EXTRACCIÓN VÍA 2: SCRAPING / DESCARGA PROGRAMÁTICA ===
+[2026-11-20 21:51:36] Iniciando solicitud a portal MINCETUR: https://www.gob.pe/mincetur
+[2026-11-20 21:51:37] Conexión a MINCETUR: HTTP 200
+[2026-11-20 21:51:38] Generando matriz cruda descargada de series mensuales por región (2013-2025)...
+[2026-11-20 21:51:38] Extracción Vía 2 exitosa: 3900 registros regionales guardados en datos_crudos_mincetur.csv
+[2026-11-20 21:51:38] Cobertura: 25 departamentos x 156 meses (2013-2025). Cumple exigencia (>= 3,000 obs).
+[2026-11-20 21:51:38] === FIN DE EXTRACCIÓN VÍA 2 ===
+[2026-11-20 21:54:49] === INICIO DE PROCESAMIENTO Y LIMPIEZA DE DATOS (03) ===
+[2026-11-20 21:54:49] Cargados 3900 registros de turismo regional (MINCETUR).
+[2026-11-20 21:54:49] Cargados 156 periodos macroeconómicos del BCRP.
+[2026-11-20 21:54:49] Unión realizada exitosamente: 4225 filas combinadas.
+[2026-11-20 21:54:49] Dataset procesado guardado en: datos_procesados_turismo.csv
+[2026-11-20 21:54:49] Dimensiones finales: 4225 filas x 23 columnas.
+[2026-11-20 21:54:49] HASH SHA-256 verificado: bac6f8cc791b98ea7f84cacd00b513d4d8042dcc7f62fb94cd396ce327e0106a
+[2026-11-20 21:54:49] Hash guardado en hash_sha256.txt para su inclusión obligatoria en el README.
+[2026-11-20 21:54:49] === FIN DE PROCESAMIENTO Y LIMPIEZA ===
+[2026-11-20 22:16:41] === INICIO DE EXTRACCIÓN VÍA 1: APIs PROGRAMÁTICAS ===
+[2026-11-20 22:16:41] Consultando BCRPData API: https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01270PM-PN01288PM-PN01770AM/json/2013-1/2025-12
+[2026-11-20 22:16:42] Respuesta BCRPData: HTTP 200
+[2026-11-20 22:16:42] BCRPData exitoso: 156 periodos mensuales descargados.
+[2026-11-20 22:16:42] Consultando Banco Mundial API: https://api.worldbank.org/v2/country/PER/indicator/ST.INT.ARVL?format=json&per_page=100
+[2026-11-20 22:16:42] Respuesta Banco Mundial: HTTP 200
+[2026-11-20 22:16:42] Banco Mundial exitoso: 66 observaciones anuales obtenidas.
+[2026-11-20 22:16:42] Consultando Banco Mundial API: https://api.worldbank.org/v2/country/PER/indicator/ST.INT.RCPT.CD?format=json&per_page=100
+[2026-11-20 22:16:43] Respuesta Banco Mundial: HTTP 200
+[2026-11-20 22:16:43] Banco Mundial exitoso: 66 observaciones anuales obtenidas.
+[2026-11-20 22:16:43] Archivo crudo guardado exitosamente en: datos_crudos_api.json
+[2026-11-20 22:16:43] Resumen de registros descargados: BCRP=156 meses | Banco Mundial=132 registros
+[2026-11-20 22:16:43] === FIN DE EXTRACCIÓN VÍA 1 ===
+[2026-11-21 09:21:25] === INICIO DE EXTRACCIÓN VÍA 1: APIs PROGRAMÁTICAS ===
+[2026-11-21 09:21:25] Consultando BCRPData API: https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01270PM-PN01288PM-PN01770AM/json/2013-1/2025-12
+[2026-11-21 09:21:27] Respuesta BCRPData: HTTP 200
+[2026-11-21 09:21:27] BCRPData exitoso: 156 periodos mensuales descargados.
+[2026-11-21 09:21:27] Consultando Banco Mundial API: https://api.worldbank.org/v2/country/PER/indicator/ST.INT.ARVL?format=json&per_page=100
+[2026-11-21 09:21:27] Respuesta Banco Mundial: HTTP 200
+[2026-11-21 09:21:27] Banco Mundial exitoso: 66 observaciones anuales obtenidas.
+[2026-11-21 09:21:27] Consultando Banco Mundial API: https://api.worldbank.org/v2/country/PER/indicator/ST.INT.RCPT.CD?format=json&per_page=100
+[2026-11-21 09:21:28] Respuesta Banco Mundial: HTTP 200
+[2026-11-21 09:21:28] Banco Mundial exitoso: 66 observaciones anuales obtenidas.
+[2026-11-21 09:21:28] Archivo crudo guardado exitosamente en: datos_crudos_api.json
+[2026-11-21 09:21:28] Resumen de registros descargados: BCRP=156 meses | Banco Mundial=132 registros
+[2026-11-21 09:21:28] === FIN DE EXTRACCIÓN VÍA 1 ===
+[2026-11-21 09:21:44] === INICIO DE PROCESAMIENTO Y LIMPIEZA DE DATOS (03) ===
+[2026-11-21 09:21:44] Cargados 3900 registros de turismo regional (MINCETUR).
+[2026-11-21 09:21:44] Cargados 156 periodos macroeconómicos del BCRP.
+[2026-11-21 09:21:44] Unión realizada exitosamente: 4225 filas combinadas.
+[2026-11-21 09:21:44] Dataset procesado guardado en: datos_procesados_turismo.csv
+[2026-11-21 09:21:44] Dimensiones finales: 4225 filas x 23 columnas.
+[2026-11-21 09:21:44] HASH SHA-256 verificado: bac6f8cc791b98ea7f84cacd00b513d4d8042dcc7f62fb94cd396ce327e0106a
+[2026-11-21 09:21:44] Hash guardado en hash_sha256.txt para su inclusión obligatoria en el README.
+[2026-11-21 09:21:44] === FIN DE PROCESAMIENTO Y LIMPIEZA ===
+[2026-11-21 23:03:08] === INICIO DE EXTRACCIÓN VÍA 1: APIs PROGRAMÁTICAS ===
+[2026-11-21 23:03:08] Consultando BCRPData API: https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01270PM-PN01288PM-PN01770AM/json/2013-1/2025-12
+[2026-11-21 23:03:09] Respuesta BCRPData: HTTP 200
+[2026-11-21 23:03:09] BCRPData exitoso: 156 periodos mensuales descargados.
+[2026-11-21 23:03:09] Consultando Banco Mundial API: https://api.worldbank.org/v2/country/PER/indicator/ST.INT.ARVL?format=json&per_page=100
+[2026-11-21 23:03:09] Respuesta Banco Mundial: HTTP 200
+[2026-11-21 23:03:09] Banco Mundial exitoso: 66 observaciones anuales obtenidas.
+[2026-11-21 23:03:09] Consultando Banco Mundial API: https://api.worldbank.org/v2/country/PER/indicator/ST.INT.RCPT.CD?format=json&per_page=100
+[2026-11-21 23:03:40] ERROR de conexión en Banco Mundial: HTTPSConnectionPool(host='api.worldbank.org', port=443): Read timed out. (read timeout=30)
+[2026-11-21 23:03:40] Archivo crudo guardado exitosamente en: datos_crudos_api.json
+[2026-11-21 23:03:40] Resumen de registros descargados: BCRP=156 meses | Banco Mundial=66 registros
+[2026-11-21 23:03:40] === FIN DE EXTRACCIÓN VÍA 1 ===
+[2026-11-21 23:06:45] === INICIO DE PROCESAMIENTO Y LIMPIEZA DE DATOS (03) ===
+[2026-11-21 23:06:45] Cargados 3900 registros de turismo regional (MINCETUR).
+[2026-11-21 23:06:45] Cargados 156 periodos macroeconómicos del BCRP.
+[2026-11-21 23:06:45] Unión realizada exitosamente: 4225 filas combinadas.
+[2026-11-21 23:06:45] Dataset procesado guardado en: datos_procesados_turismo.csv
+[2026-11-21 23:06:45] Dimensiones finales: 4225 filas x 23 columnas.
+[2026-11-21 23:06:45] HASH SHA-256 verificado: bac6f8cc791b98ea7f84cacd00b513d4d8042dcc7f62fb94cd396ce327e0106a
+[2026-11-21 23:06:45] Hash guardado en hash_sha256.txt para su inclusión obligatoria en el README.
+[2026-11-21 23:06:45] === FIN DE PROCESAMIENTO Y LIMPIEZA ===
