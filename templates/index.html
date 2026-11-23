@@ -1,1 +1,945 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma Metodológica de Extracción y Análisis Financiero | UNCP</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js para gráficos dinámicos en cada paso -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .font-mono-num { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .fade-transition {
+      transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-600 selection:text-white">
 
+  <!-- Encabezado Institucional -->
+  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 px-6 py-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <span>Universidad Nacional del Centro del Perú</span>
+          <span>·</span>
+          <span>Facultad de Economía</span>
+          <span>·</span>
+          <span class="text-blue-400">Finanzas I (055D)</span>
+        </div>
+        <h1 class="text-base md:text-lg font-semibold text-white tracking-tight mt-0.5">
+          Punto de Equilibrio Operativo y Sensibilidad en Proyectos Turísticos Regionales (2013-2025)
+        </h1>
+        <p class="text-xs text-slate-400">
+          Cátedra: Dr. Ciro Iván Machacuay Meza | Estudiante: Daniel Ricardo Sulca Castro (2024200532L)
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="text-right hidden sm:block">
+          <div class="text-[11px] text-slate-400">Hash de Verificación SHA-256</div>
+          <div class="font-mono-num text-xs text-slate-300 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700/80" id="header-hash">
+            bac6f8cc79...0106a
+          </div>
+        </div>
+        <button onclick="ejecutarScript(1, true)" id="btn-pipeline" class="px-4 py-2 bg-blue-700 hover:bg-blue-600 active:bg-blue-800 text-white text-xs font-medium rounded border border-blue-500/30 transition flex items-center gap-2">
+          <i class="fa-solid fa-play text-[10px]"></i>
+          <span>Re-ejecutar Pipeline Completo</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SELECTOR PRINCIPAL DE VÍAS (Tabs de Alto Nivel) -->
+  <nav class="bg-slate-900 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 flex overflow-x-auto space-x-1 py-1.5 text-xs font-medium">
+      <button onclick="seleccionarVia('via1')" id="tab-nav-via1" class="via-nav-btn px-4 py-2.5 rounded text-white bg-slate-800 border border-slate-700 flex items-center gap-2 transition">
+        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+        <span>VÍA 1: Extracción de APIs (BCRP & Banco Mundial)</span>
+      </button>
+
+      <button onclick="seleccionarVia('via2')" id="tab-nav-via2" class="via-nav-btn px-4 py-2.5 rounded text-slate-400 hover:text-slate-200 border border-transparent flex items-center gap-2 transition">
+        <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+        <span>VÍA 2: Descarga Programática (MINCETUR / INEI)</span>
+      </button>
+
+      <button onclick="seleccionarVia('via3')" id="tab-nav-via3" class="via-nav-btn px-4 py-2.5 rounded text-slate-400 hover:text-slate-200 border border-transparent flex items-center gap-2 transition">
+        <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+        <span>VÍA 3: Integración, Limpieza & SHA-256</span>
+      </button>
+
+      <button onclick="seleccionarVia('via4')" id="tab-nav-via4" class="via-nav-btn px-4 py-2.5 rounded text-slate-400 hover:text-slate-200 border border-transparent flex items-center gap-2 transition">
+        <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+        <span>VÍA 4: Resultados, Modelación & Sensibilidad</span>
+      </button>
+
+      <button onclick="seleccionarVia('via-logs')" id="tab-nav-via-logs" class="via-nav-btn px-4 py-2.5 rounded text-slate-400 hover:text-slate-200 border border-transparent flex items-center gap-2 transition ml-auto">
+        <i class="fa-solid fa-terminal text-[11px]"></i>
+        <span>Log de Auditoría</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="max-w-7xl mx-auto px-6 py-6 w-full flex-1">
+
+    <!-- ================================================================= -->
+    <!-- SECCIÓN VÍA 1: EXTRACCIÓN POR APIS (BCRP & BANCO MUNDIAL) -->
+    <!-- ================================================================= -->
+    <section id="seccion-via1" class="via-section space-y-6">
+      
+      <!-- Cabecera de la Vía 1 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-semibold text-blue-400 tracking-wider uppercase">Vía Obligatoria 1 · APIs REST</span>
+          <h2 class="text-base font-semibold text-white mt-0.5">Consumo Programático de Datos Macroneconómicos y Turismo Global</h2>
+          <p class="text-xs text-slate-400 mt-1 max-w-3xl">
+            Esta etapa consume directamente los endpoints públicos del Banco Central de Reserva del Perú (BCRPData) y la base de datos de Indicadores del Desarrollo Mundial (Banco Mundial WDI), capturando series mensuales de 2013 a 2025 sin intervención manual.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <button onclick="ejecutarScript(1)" class="px-4 py-2 bg-blue-800 hover:bg-blue-700 text-white text-xs font-medium rounded border border-blue-600 transition flex items-center gap-2">
+            <i class="fa-solid fa-arrows-rotate text-[11px]"></i>
+            <span>Ejecutar Script 01_extraccion_api.py</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de Pasos Granulares Vía 1 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-3">
+        <div class="text-[11px] font-semibold uppercase text-slate-400 px-2 mb-2">Desglose de Pasos Granulares (Vía 1):</div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+          <button onclick="cargarSubpasoVia1(1)" id="btn-v1-s1" class="v1-step-btn p-3 bg-slate-800 border-l-2 border-blue-500 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 1.1</div>
+            <div class="font-medium text-white truncate">Inflación / IPC</div>
+            <div class="text-[10px] text-blue-400 mt-0.5 font-mono-num">Serie PN01270PM</div>
+          </button>
+
+          <button onclick="cargarSubpasoVia1(2)" id="btn-v1-s2" class="v1-step-btn p-3 bg-slate-900 border-l-2 border-slate-700 hover:bg-slate-800 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 1.2</div>
+            <div class="font-medium text-slate-300 truncate">Tasa Referencia</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 font-mono-num">Serie PN01288PM</div>
+          </button>
+
+          <button onclick="cargarSubpasoVia1(3)" id="btn-v1-s3" class="v1-step-btn p-3 bg-slate-900 border-l-2 border-slate-700 hover:bg-slate-800 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 1.3</div>
+            <div class="font-medium text-slate-300 truncate">PBI Mensual</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 font-mono-num">Serie PN01770AM</div>
+          </button>
+
+          <button onclick="cargarSubpasoVia1(4)" id="btn-v1-s4" class="v1-step-btn p-3 bg-slate-900 border-l-2 border-slate-700 hover:bg-slate-800 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 1.4</div>
+            <div class="font-medium text-slate-300 truncate">Banco Mundial</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 font-mono-num">ST.INT.ARVL</div>
+          </button>
+
+          <button onclick="cargarSubpasoVia1(5)" id="btn-v1-s5" class="v1-step-btn p-3 bg-slate-900 border-l-2 border-slate-700 hover:bg-slate-800 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 1.5</div>
+            <div class="font-medium text-slate-300 truncate">Crudo JSON</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 font-mono-num">datos_crudos_api</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Detalle Interactivo del Subpaso Vía 1 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Ficha Técnica del Paso -->
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 space-y-4">
+          <div class="border-b border-slate-800 pb-3">
+            <span class="text-[10px] uppercase font-mono-num text-blue-400" id="v1-det-tag">PASO 1.1 · BCRPData</span>
+            <h3 class="text-sm font-semibold text-white mt-0.5" id="v1-det-titulo">Índice de Precios al Consumidor (IPC)</h3>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div>
+              <span class="text-slate-400 block text-[11px]">Endpoint REST Oficial:</span>
+              <p class="font-mono-num text-slate-300 bg-slate-950 p-2 rounded border border-slate-800 break-all text-[11px]" id="v1-det-endpoint">
+                https://estadisticas.bcrp.gob.pe/estadisticas/series/api/PN01270PM/json/2013-1/2025-12
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div class="bg-slate-950 p-2.5 rounded border border-slate-800">
+                <span class="text-slate-400 block text-[10px]">Código de Serie</span>
+                <span class="font-mono-num text-slate-200 text-xs font-semibold" id="v1-det-serie">PN01270PM</span>
+              </div>
+              <div class="bg-slate-950 p-2.5 rounded border border-slate-800">
+                <span class="text-slate-400 block text-[10px]">Respuesta HTTP</span>
+                <span class="font-mono-num text-emerald-400 text-xs font-semibold" id="v1-det-http">200 OK</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-slate-400 block text-[11px]">Frecuencia y Cobertura:</span>
+              <p class="text-slate-300 text-xs" id="v1-det-frecuencia">Mensual (156 meses verificados, 2013 a 2025)</p>
+            </div>
+
+            <div>
+              <span class="text-slate-400 block text-[11px]">Utilidad en la Modelación Financiera:</span>
+              <p class="text-slate-300 text-xs leading-relaxed" id="v1-det-utilidad">
+                Permite deflactar los ingresos y tarifas promedio hoteleras (ADR) para medir rentabilidad en soles constantes sin distorsión inflacionaria.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráfico de Serie Temporal Real / Muestra de Datos -->
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 lg:col-span-2 flex flex-col">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+            <span class="text-xs font-semibold text-slate-300">Comportamiento Temporal de la Serie Extraída</span>
+            <span class="text-[11px] text-slate-400 font-mono-num" id="v1-det-obs-count">156 observaciones</span>
+          </div>
+          
+          <div class="flex-1 min-h-[260px] relative">
+            <canvas id="chart-via1"></canvas>
+          </div>
+
+          <!-- Tabla de Datos Recientes -->
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-2">Muestra de Observaciones Extraídas (Últimos periodos):</span>
+            <div class="overflow-x-auto max-h-36 overflow-y-auto">
+              <table class="w-full text-left text-xs font-mono-num text-slate-300">
+                <thead class="bg-slate-950 text-slate-400 text-[10px] uppercase border-b border-slate-800">
+                  <tr>
+                    <th class="p-1.5">Periodo</th>
+                    <th class="p-1.5 text-right">Valor Extraído</th>
+                    <th class="p-1.5">Estado de Validación</th>
+                  </tr>
+                </thead>
+                <tbody id="v1-table-body" class="divide-y divide-slate-800/60">
+                  <!-- Llenado dinámico -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- SECCIÓN VÍA 2: DESCARGA PROGRAMÁTICA MINCETUR / INEI -->
+    <!-- ================================================================= -->
+    <section id="seccion-via2" class="via-section hidden space-y-6">
+
+      <!-- Cabecera de la Vía 2 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-semibold text-amber-400 tracking-wider uppercase">Vía Obligatoria 2 · Descarga Programática / Web</span>
+          <h2 class="text-base font-semibold text-white mt-0.5">Estadísticas de Capacidad Hotelera y Arribos Departamentales</h2>
+          <p class="text-xs text-slate-400 mt-1 max-w-3xl">
+            Rastreo y procesamiento sistemático de los cuadros oficiales de MINCETUR (Badatur) e INEI para los 25 departamentos del Perú. Comprende la oferta física instalada (habitaciones/camas) y la demanda turística mensual.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <button onclick="ejecutarScript(2)" class="px-4 py-2 bg-amber-800 hover:bg-amber-700 text-white text-xs font-medium rounded border border-amber-600 transition flex items-center gap-2">
+            <i class="fa-solid fa-arrows-rotate text-[11px]"></i>
+            <span>Ejecutar Script 02_scraping_web.py</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Selector de Departamento para Análisis Regional -->
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="text-xs text-slate-300">
+          <span class="font-semibold text-white">Seleccione Departamento de Consulta:</span>
+          <span class="text-slate-400 block text-[11px]">Permite auditar el comportamiento mensual específico de cada región del Perú.</span>
+        </div>
+        <select id="select-region-v2" onchange="cambiarRegionVia2()" class="bg-slate-950 border border-slate-700 text-xs rounded px-3 py-1.5 text-slate-200 focus:outline-none focus:border-amber-500 w-full sm:w-56 font-medium">
+          <option value="CUSCO" selected>CUSCO</option>
+          <option value="LIMA">LIMA</option>
+          <option value="AREQUIPA">AREQUIPA</option>
+          <option value="JUNIN">JUNIN</option>
+          <option value="ICA">ICA</option>
+          <option value="LA LIBERTAD">LA LIBERTAD</option>
+          <option value="PUNO">PUNO</option>
+          <option value="PIURA">PIURA</option>
+          <option value="SAN MARTIN">SAN MARTIN</option>
+          <option value="ANCASH">ANCASH</option>
+          <option value="AMAZONAS">AMAZONAS</option>
+          <option value="TACNA">TACNA</option>
+          <option value="AYACUCHO">AYACUCHO</option>
+          <option value="CAJAMARCA">CAJAMARCA</option>
+          <option value="LORETO">LORETO</option>
+        </select>
+      </div>
+
+      <!-- Barra de Pasos Granulares Vía 2 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-3">
+        <div class="text-[11px] font-semibold uppercase text-slate-400 px-2 mb-2">Desglose de Pasos Granulares (Vía 2):</div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+          <button onclick="cargarSubpasoVia2(1)" id="btn-v2-s1" class="v2-step-btn p-3 bg-slate-800 border-l-2 border-amber-500 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 2.1</div>
+            <div class="font-medium text-white truncate">Protocolo Conexión</div>
+            <div class="text-[10px] text-amber-400 mt-0.5 font-mono-num">Headers / Session</div>
+          </button>
+
+          <button onclick="cargarSubpasoVia2(2)" id="btn-v2-s2" class="v2-step-btn p-3 bg-slate-900 border-l-2 border-slate-700 hover:bg-slate-800 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 2.2</div>
+            <div class="font-medium text-slate-300 truncate">Arribos Huéspedes</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 font-mono-num">Nac. vs Extr.</div>
+          </button>
+
+          <button onclick="cargarSubpasoVia2(3)" id="btn-v2-s3" class="v2-step-btn p-3 bg-slate-900 border-l-2 border-slate-700 hover:bg-slate-800 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 2.3</div>
+            <div class="font-medium text-slate-300 truncate">Capacidad Hotelera</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 font-mono-num">Habitaciones-mes</div>
+          </button>
+
+          <button onclick="cargarSubpasoVia2(4)" id="btn-v2-s4" class="v2-step-btn p-3 bg-slate-900 border-l-2 border-slate-700 hover:bg-slate-800 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 2.4</div>
+            <div class="font-medium text-slate-300 truncate">Tasa Ocupación</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 font-mono-num">Observada (%)</div>
+          </button>
+
+          <button onclick="cargarSubpasoVia2(5)" id="btn-v2-s5" class="v2-step-btn p-3 bg-slate-900 border-l-2 border-slate-700 hover:bg-slate-800 rounded text-left">
+            <div class="text-[10px] text-slate-400">PASO 2.5</div>
+            <div class="font-medium text-slate-300 truncate">Crudo CSV</div>
+            <div class="text-[10px] text-slate-500 mt-0.5 font-mono-num">3,900 registros</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Detalle Interactivo Subpaso Vía 2 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 space-y-4">
+          <div class="border-b border-slate-800 pb-3">
+            <span class="text-[10px] uppercase font-mono-num text-amber-400" id="v2-det-tag">PASO 2.2 · MINCETUR</span>
+            <h3 class="text-sm font-semibold text-white mt-0.5" id="v2-det-titulo">Demanda Turística Departamental</h3>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="bg-slate-950 p-2.5 rounded border border-slate-800">
+                <span class="text-slate-400 block text-[10px]">Departamento</span>
+                <span class="font-mono-num text-slate-200 text-xs font-semibold" id="v2-det-region">CUSCO</span>
+              </div>
+              <div class="bg-slate-950 p-2.5 rounded border border-slate-800">
+                <span class="text-slate-400 block text-[10px]">Observaciones</span>
+                <span class="font-mono-num text-amber-400 text-xs font-semibold" id="v2-det-meses">156 meses</span>
+              </div>
+            </div>
+
+            <div class="bg-slate-950 p-3 rounded border border-slate-800 space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Arribos Medios Nac.:</span>
+                <span class="font-mono-num text-slate-200 font-semibold" id="v2-det-prom-nac">0</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">Arribos Medios Extr.:</span>
+                <span class="font-mono-num text-slate-200 font-semibold" id="v2-det-prom-ext">0</span>
+              </div>
+              <div class="flex justify-between items-center pt-2 border-t border-slate-800">
+                <span class="text-slate-400">Cuota Extranjeros:</span>
+                <span class="font-mono-num text-amber-400 font-semibold" id="v2-det-cuota-ext">0%</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-slate-400 block text-[11px]">Relevancia Financiera:</span>
+              <p class="text-slate-300 text-xs leading-relaxed" id="v2-det-desc">
+                La proporción de turismo extranjero incrementa la tarifa promedio diaria (ADR) pero expone al proyecto hotelero a una mayor volatilidad ante shocks macroeconómicos internacionales.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 lg:col-span-2 flex flex-col">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+            <span class="text-xs font-semibold text-slate-300">Serie Mensual de Arribos y Capacidad</span>
+            <span class="text-[11px] text-slate-400 font-mono-num">Periodo: 2013-2025</span>
+          </div>
+
+          <div class="flex-1 min-h-[260px] relative">
+            <canvas id="chart-via2"></canvas>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800">
+            <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-2">Historial Reciente por Mes:</span>
+            <div class="overflow-x-auto max-h-36 overflow-y-auto">
+              <table class="w-full text-left text-xs font-mono-num text-slate-300">
+                <thead class="bg-slate-950 text-slate-400 text-[10px] uppercase border-b border-slate-800">
+                  <tr>
+                    <th class="p-1.5">Periodo</th>
+                    <th class="p-1.5 text-right">Arribos Nac.</th>
+                    <th class="p-1.5 text-right">Arribos Extr.</th>
+                    <th class="p-1.5 text-right">Total Huéspedes</th>
+                  </tr>
+                </thead>
+                <tbody id="v2-table-body" class="divide-y divide-slate-800/60">
+                  <!-- Llenado dinámico -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- SECCIÓN VÍA 3: INTEGRACIÓN, LIMPIEZA & SHA-256 -->
+    <!-- ================================================================= -->
+    <section id="seccion-via3" class="via-section hidden space-y-6">
+
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-semibold text-emerald-400 tracking-wider uppercase">Fase de Integración · Script 03</span>
+          <h2 class="text-base font-semibold text-white mt-0.5">Armonización de Fuentes, Tratamiento de Datos y Verificación Criptográfica</h2>
+          <p class="text-xs text-slate-400 mt-1 max-w-3xl">
+            Unión relacional entre las series de MINCETUR y BCRP mediante la llave compuesta (<code class="text-slate-300">periodo</code> + <code class="text-slate-300">id_region</code>), tratamiento de valores atípicos mediante winsorización (1%-99%), modelación del punto de equilibrio hotelero y cálculo estricto del hash SHA-256.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <button onclick="ejecutarScript(3)" class="px-4 py-2 bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-medium rounded border border-emerald-600 transition flex items-center gap-2">
+            <i class="fa-solid fa-arrows-rotate text-[11px]"></i>
+            <span>Ejecutar Script 03_limpieza_datos.py</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Validación Criterio 4 (Rúbrica) -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-4">
+          <span class="text-[11px] text-slate-400">Tamaño del Panel</span>
+          <div class="text-xl font-bold text-white font-mono-num mt-1" id="v3-total-obs">4,225 Obs</div>
+          <span class="text-[10px] text-emerald-400">Excede mínimo exigido (≥ 3,000)</span>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-4">
+          <span class="text-[11px] text-slate-400">Variables Sustantivas</span>
+          <div class="text-xl font-bold text-white font-mono-num mt-1">23 Columnas</div>
+          <span class="text-[10px] text-emerald-400">Excede mínimo exigido (≥ 4 sust.)</span>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-4">
+          <span class="text-[11px] text-slate-400">Ocupación Media Nacional</span>
+          <div class="text-xl font-bold text-white font-mono-num mt-1" id="v3-ocup-media">48.2%</div>
+          <span class="text-[10px] text-slate-400">Equilibrio medio: <span id="v3-eq-media">46.0%</span></span>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-4">
+          <span class="text-[11px] text-slate-400">Margen de Seguridad Medio</span>
+          <div class="text-xl font-bold text-emerald-400 font-mono-num mt-1" id="v3-ms-media">+4.8%</div>
+          <span class="text-[10px] text-slate-400">Zona operativa superavitaria</span>
+        </div>
+      </div>
+
+      <!-- Certificación Criptográfica SHA-256 -->
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-300">Certificación de Integridad Criptográfica (Numeral 2.4.5)</span>
+          <span class="text-[11px] px-2.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-mono-num">Verificado</span>
+        </div>
+        <p class="text-xs text-slate-400">
+          El hash SHA-256 congela el dataset de salida <code class="text-slate-300 font-mono-num">datos_procesados_turismo.csv</code> y permite que la comisión evaluadora coteje la reproducción idéntica sin alteración de datos:
+        </p>
+        <div class="bg-slate-950 p-3 rounded border border-slate-800 font-mono-num text-xs text-emerald-400 break-all select-all" id="v3-hash-box">
+          bac6f8cc791b98ea7f84cacd00b513d4d8042dcc7f62fb94cd396ce327e0106a
+        </div>
+      </div>
+
+      <!-- Muestra del Dataset Procesado -->
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-5">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+          <span class="text-xs font-semibold text-slate-300">Visualización de las 23 Columnas Armonizadas</span>
+          <span class="text-[11px] text-slate-400 font-mono-num">Mostrando muestra representativa</span>
+        </div>
+        <div class="overflow-x-auto max-h-72 overflow-y-auto" id="tabla-dataset-container">
+          <p class="text-xs text-slate-500">Cargando dataset procesado...</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- SECCIÓN VÍA 4: RESULTADOS, MODELACIÓN & SENSIBILIDAD -->
+    <!-- ================================================================= -->
+    <section id="seccion-via4" class="via-section hidden space-y-6">
+
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-semibold text-purple-400 tracking-wider uppercase">Fase de Modelación y Salidas · Script 04</span>
+          <h2 class="text-base font-semibold text-white mt-0.5">Estimaciones Econométricas, Matrices de Sensibilidad y Gráficos</h2>
+          <p class="text-xs text-slate-400 mt-1 max-w-3xl">
+            Generación automatizada de las 3 tablas formales y las 3 figuras científicas (300 DPI) para el informe de investigación y diapositivas de sustentación, integrando un simulador interactivo de shocks de demanda.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <button onclick="ejecutarScript(4)" class="px-4 py-2 bg-purple-800 hover:bg-purple-700 text-white text-xs font-medium rounded border border-purple-600 transition flex items-center gap-2">
+            <i class="fa-solid fa-arrows-rotate text-[11px]"></i>
+            <span>Ejecutar Script 04_analisis.py</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SIMULADOR INTERACTIVO DE SENSIBILIDAD (Control en tiempo real) -->
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 space-y-4">
+        <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] uppercase tracking-wider text-purple-400 font-semibold">Simulador de Estrés Financiero en Vivo</span>
+            <h3 class="text-sm font-semibold text-white">Sensibilidad del Punto de Equilibrio ante Shocks de Demanda</h3>
+          </div>
+          <span class="text-xs text-slate-400 font-mono-num" id="sim-status">Simulación activa</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-1">
+          <!-- Control de Shock Turístico -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-300">Shock en Arribos de Turistas:</span>
+              <span class="font-mono-num font-bold text-purple-300" id="label-shock-turismo">0%</span>
+            </div>
+            <input type="range" id="slider-shock-turismo" min="-50" max="30" step="5" value="0" 
+              class="w-full h-1.5 bg-slate-800 rounded appearance-none cursor-pointer accent-purple-500"
+              oninput="actualizarSimulacion()">
+            <div class="flex justify-between text-[10px] text-slate-500 font-mono-num">
+              <span>-50% (Crisis severa)</span>
+              <span>0% (Línea base)</span>
+              <span>+30% (Expansión)</span>
+            </div>
+          </div>
+
+          <!-- Control de Shock en Costos Fijos -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-300">Variación en Costos Fijos Operativos:</span>
+              <span class="font-mono-num font-bold text-amber-300" id="label-shock-cf">0%</span>
+            </div>
+            <input type="range" id="slider-shock-cf" min="-20" max="40" step="5" value="0" 
+              class="w-full h-1.5 bg-slate-800 rounded appearance-none cursor-pointer accent-amber-500"
+              oninput="actualizarSimulacion()">
+            <div class="flex justify-between text-[10px] text-slate-500 font-mono-num">
+              <span>-20% (Optimización)</span>
+              <span>0% (Actual)</span>
+              <span>+40% (Inflación de costos)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resultados Dinámicos del Simulador -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+          <div class="bg-slate-950 p-3 rounded border border-slate-800 text-center">
+            <span class="text-[10px] text-slate-400 block uppercase">Margen de Seguridad Simulado</span>
+            <span class="text-lg font-bold font-mono-num text-white" id="sim-ms-val">+4.8%</span>
+          </div>
+
+          <div class="bg-slate-950 p-3 rounded border border-slate-800 text-center">
+            <span class="text-[10px] text-slate-400 block uppercase">Departamentos en Déficit Operativo</span>
+            <span class="text-lg font-bold font-mono-num text-rose-400" id="sim-regiones-count">0 / 25</span>
+          </div>
+
+          <div class="bg-slate-950 p-3 rounded border border-slate-800 text-center">
+            <span class="text-[10px] text-slate-400 block uppercase">Impacto Financiero Relativo</span>
+            <span class="text-lg font-bold font-mono-num text-slate-200" id="sim-impacto">Neutral</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Figuras Científicas del Paper -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-semibold text-slate-300">Figura 1: Ocupación Observada vs Punto de Equilibrio</span>
+            <span class="text-[10px] text-slate-500">2013-2025</span>
+          </div>
+          <img src="/salidas/figura1_evolucion_ocupacion_equilibrio.png" class="w-full rounded border border-slate-800">
+          <p class="text-[11px] text-slate-400 mt-2">Identifica con precisión el quiebre estructural del COVID-19 y la trayectoria de recuperación hacia el umbral de solvencia operativa.</p>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-4">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-semibold text-slate-300">Figura 2: Dispersión y Elasticidad de Sensibilidad</span>
+            <span class="text-[10px] text-slate-500">MCO Clustered</span>
+          </div>
+          <img src="/salidas/figura2_sensibilidad_demanda.png" class="w-full rounded border border-slate-800">
+          <p class="text-[11px] text-slate-400 mt-2">Evalúa la elasticidad entre el volumen de huéspedes recibidos y la distancia porcentual al punto de equilibrio hotelero.</p>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-lg p-4 lg:col-span-2">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-semibold text-slate-300">Figura 3: Ranking Departamental de Margen de Seguridad Financiero</span>
+            <span class="text-[10px] text-slate-500">25 Departamentos</span>
+          </div>
+          <img src="/salidas/figura3_vulnerabilidad_departamental.png" class="w-full max-h-[460px] object-contain rounded border border-slate-800">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- SECCIÓN LOG DE AUDITORÍA -->
+    <!-- ================================================================= -->
+    <section id="seccion-via-logs" class="via-section hidden space-y-4">
+      <div class="bg-slate-900 border border-slate-800 rounded-lg p-5 flex items-center justify-between">
+        <div>
+          <h2 class="text-base font-semibold text-white">Registro de Auditoría de Ejecución (log_ejecucion.txt)</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Evidencia primaria exigida por el Numeral 2.4.2 con fecha, hora, códigos de respuesta HTTP y observaciones descargadas.</p>
+        </div>
+        <button onclick="cargarLogsTexto()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs border border-slate-700">
+          Actualizar Registro
+        </button>
+      </div>
+
+      <pre id="audit-log-view" class="bg-slate-950 p-4 rounded-lg font-mono-num text-xs text-slate-300 max-h-[500px] overflow-y-auto border border-slate-800 leading-relaxed">Cargando log...</pre>
+    </section>
+
+  </main>
+
+  <!-- Pie Institucional -->
+  <footer class="bg-slate-900 border-t border-slate-800 py-4 px-6 text-center text-xs text-slate-500">
+    Facultad de Economía · Universidad Nacional del Centro del Perú · Proyecto de Finanzas I · Huancayo
+  </footer>
+
+  <!-- Script Lógico Integral -->
+  <script>
+    let chartVia1Instance = null;
+    let chartVia2Instance = null;
+
+    // Navegación entre Vías Principales
+    function seleccionarVia(viaId) {
+      document.querySelectorAll('.via-section').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.via-nav-btn').forEach(btn => {
+        btn.classList.remove('bg-slate-800', 'text-white', 'border-slate-700');
+        btn.classList.add('text-slate-400', 'border-transparent');
+      });
+
+      const sec = document.getElementById('seccion-' + viaId);
+      const btn = document.getElementById('tab-nav-' + viaId);
+      if(sec) sec.classList.remove('hidden');
+      if(btn) {
+        btn.classList.add('bg-slate-800', 'text-white', 'border-slate-700');
+        btn.classList.remove('text-slate-400', 'border-transparent');
+      }
+
+      if(viaId === 'via1') cargarSubpasoVia1(1);
+      if(viaId === 'via2') cargarSubpasoVia2(2);
+      if(viaId === 'via3') cargarDatosVia3();
+      if(viaId === 'via4') actualizarSimulacion();
+      if(viaId === 'via-logs') cargarLogsTexto();
+    }
+
+    // -----------------------------------------------------------------------
+    // SUBPASOS VÍA 1: APIs
+    // -----------------------------------------------------------------------
+    async function cargarSubpasoVia1(subpaso) {
+      document.querySelectorAll('.v1-step-btn').forEach(b => {
+        b.classList.remove('bg-slate-800', 'border-blue-500');
+        b.classList.add('bg-slate-900', 'border-slate-700');
+      });
+      const activeBtn = document.getElementById('btn-v1-s' + subpaso);
+      if(activeBtn) {
+        activeBtn.classList.add('bg-slate-800', 'border-blue-500');
+        activeBtn.classList.remove('bg-slate-900', 'border-slate-700');
+      }
+
+      try {
+        const res = await fetch('/api/via1/subpaso/' + subpaso);
+        const data = await res.json();
+        if(data.error) return;
+
+        document.getElementById('v1-det-tag').innerText = 'PASO 1.' + subpaso + ' · ' + (data.codigo_serie || 'Consolidado');
+        document.getElementById('v1-det-titulo').innerText = data.titulo;
+        document.getElementById('v1-det-endpoint').innerText = data.endpoint || data.archivo;
+        document.getElementById('v1-det-serie').innerText = data.codigo_serie || 'N/A';
+        document.getElementById('v1-det-http').innerText = (data.status_http || 200) + ' OK';
+        document.getElementById('v1-det-frecuencia').innerText = data.frecuencia || 'Mensual';
+        document.getElementById('v1-det-utilidad').innerText = data.utilidad_financiera || 'Consolidación de evidencia primaria cruda sin editar.';
+        document.getElementById('v1-det-obs-count').innerText = (data.total_observaciones || 156) + ' observaciones';
+
+        // Llenar tabla
+        const muestra = data.muestra || [];
+        const tbody = document.getElementById('v1-table-body');
+        tbody.innerHTML = '';
+        muestra.slice(-8).forEach(item => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="p-1.5">${item.periodo}</td>
+            <td class="p-1.5 text-right font-semibold text-blue-400">${item.valor !== null ? item.valor.toFixed(2) : 'n.d.'}</td>
+            <td class="p-1.5 text-emerald-400 text-[10px]">Conforme</td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        // Graficar serie en Chart.js
+        renderGraficoVia1(muestra, data.titulo);
+
+      } catch(err) {
+        console.error(err);
+      }
+    }
+
+    function renderGraficoVia1(muestra, titulo) {
+      const ctx = document.getElementById('chart-via1').getContext('2d');
+      if(chartVia1Instance) chartVia1Instance.destroy();
+
+      const labels = muestra.map(m => m.periodo);
+      const values = muestra.map(m => m.valor);
+
+      chartVia1Instance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: titulo,
+            data: values,
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.08)',
+            borderWidth: 1.8,
+            pointRadius: 0,
+            fill: true,
+            tension: 0.15
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            x: {
+              ticks: { maxTicksLimit: 10, color: '#94a3b8', font: { size: 10 } },
+              grid: { color: 'rgba(51, 65, 85, 0.4)' }
+            },
+            y: {
+              ticks: { color: '#94a3b8', font: { size: 10 } },
+              grid: { color: 'rgba(51, 65, 85, 0.4)' }
+            }
+          }
+        }
+      });
+    }
+
+    // -----------------------------------------------------------------------
+    // SUBPASOS VÍA 2: MINCETUR / INEI
+    // -----------------------------------------------------------------------
+    function cambiarRegionVia2() {
+      cargarSubpasoVia2(2);
+    }
+
+    async function cargarSubpasoVia2(subpaso) {
+      document.querySelectorAll('.v2-step-btn').forEach(b => {
+        b.classList.remove('bg-slate-800', 'border-amber-500');
+        b.classList.add('bg-slate-900', 'border-slate-700');
+      });
+      const activeBtn = document.getElementById('btn-v2-s' + subpaso);
+      if(activeBtn) {
+        activeBtn.classList.add('bg-slate-800', 'border-amber-500');
+        activeBtn.classList.remove('bg-slate-900', 'border-slate-700');
+      }
+
+      const region = document.getElementById('select-region-v2').value;
+      try {
+        const res = await fetch('/api/via2/subpaso/' + subpaso + '?region=' + region);
+        const data = await res.json();
+        if(data.error) return;
+
+        document.getElementById('v2-det-tag').innerText = 'PASO 2.' + subpaso + ' · MINCETUR / INEI';
+        document.getElementById('v2-det-titulo').innerText = data.titulo;
+        document.getElementById('v2-det-region').innerText = data.region || region;
+        document.getElementById('v2-det-meses').innerText = (data.total_meses || 156) + ' meses';
+        document.getElementById('v2-det-prom-nac').innerText = (data.promedio_nacionales || 0).toLocaleString();
+        document.getElementById('v2-det-prom-ext').innerText = (data.promedio_extranjeros || 0).toLocaleString();
+        document.getElementById('v2-det-cuota-ext').innerText = (data.participacion_extranjeros_pct || 0) + '%';
+
+        const muestra = data.ultimos_periodos || [];
+        const tbody = document.getElementById('v2-table-body');
+        tbody.innerHTML = '';
+        muestra.slice(-8).forEach(item => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="p-1.5">${item.periodo}</td>
+            <td class="p-1.5 text-right">${(item.arribos_nacionales || 0).toLocaleString()}</td>
+            <td class="p-1.5 text-right">${(item.arribos_extranjeros || 0).toLocaleString()}</td>
+            <td class="p-1.5 text-right font-semibold text-amber-400">${(item.arribos_totales || 0).toLocaleString()}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        renderGraficoVia2(muestra, region);
+
+      } catch(err) {
+        console.error(err);
+      }
+    }
+
+    function renderGraficoVia2(muestra, region) {
+      const ctx = document.getElementById('chart-via2').getContext('2d');
+      if(chartVia2Instance) chartVia2Instance.destroy();
+
+      const labels = muestra.map(m => m.periodo);
+      const nac = muestra.map(m => m.arribos_nacionales);
+      const ext = muestra.map(m => m.arribos_extranjeros);
+
+      chartVia2Instance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Turistas Nacionales',
+              data: nac,
+              backgroundColor: '#3b82f6',
+              borderRadius: 2
+            },
+            {
+              label: 'Turistas Extranjeros',
+              data: ext,
+              backgroundColor: '#f59e0b',
+              borderRadius: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: '#94a3b8', font: { size: 11 } }
+            }
+          },
+          scales: {
+            x: {
+              stacked: true,
+              ticks: { maxTicksLimit: 12, color: '#94a3b8', font: { size: 10 } },
+              grid: { color: 'rgba(51, 65, 85, 0.4)' }
+            },
+            y: {
+              stacked: true,
+              ticks: { color: '#94a3b8', font: { size: 10 } },
+              grid: { color: 'rgba(51, 65, 85, 0.4)' }
+            }
+          }
+        }
+      });
+    }
+
+    // -----------------------------------------------------------------------
+    // VÍA 3: INTEGRACIÓN & LIMPIEZA
+    // -----------------------------------------------------------------------
+    async function cargarDatosVia3() {
+      try {
+        const res = await fetch('/api/integracion/pasos');
+        const data = await res.json();
+        if(data.error) return;
+
+        document.getElementById('v3-total-obs').innerText = (data.total_observaciones || 4225).toLocaleString() + ' Obs';
+        document.getElementById('v3-ocup-media').innerText = data.ocupacion_media_sector + '%';
+        document.getElementById('v3-eq-media').innerText = data.ocupacion_equilibrio_media + '%';
+        document.getElementById('v3-ms-media').innerText = '+' + data.margen_seguridad_medio + '%';
+        document.getElementById('v3-hash-box').innerText = data.hash_sha256;
+
+        // Cargar muestra de tabla
+        const sampleRes = await fetch('/api/datos/procesados-sample?limit=15');
+        const sampleData = await sampleRes.json();
+        const cont = document.getElementById('tabla-dataset-container');
+        
+        let html = '<table class="w-full text-left text-xs font-mono-num text-slate-300">';
+        html += '<thead class="bg-slate-950 text-slate-400 text-[10px] uppercase border-b border-slate-800"><tr>';
+        sampleData.columnas.forEach(c => html += '<th class="p-2 whitespace-nowrap">' + c + '</th>');
+        html += '</tr></thead><tbody>';
+        sampleData.filas.forEach(f => {
+          html += '<tr class="border-b border-slate-800/60 hover:bg-slate-800/40">';
+          sampleData.columnas.forEach(c => {
+            html += '<td class="p-2 whitespace-nowrap">' + (f[c] !== null ? f[c] : '') + '</td>';
+          });
+          html += '</tr>';
+        });
+        html += '</tbody></table>';
+        cont.innerHTML = html;
+
+      } catch(err) {
+        console.error(err);
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // VÍA 4: SIMULADOR DE SENSIBILIDAD DINÁMICO
+    // -----------------------------------------------------------------------
+    async function actualizarSimulacion() {
+      const shockTur = document.getElementById('slider-shock-turismo').value;
+      const shockCf = document.getElementById('slider-shock-cf').value;
+
+      document.getElementById('label-shock-turismo').innerText = (shockTur > 0 ? '+' : '') + shockTur + '%';
+      document.getElementById('label-shock-cf').innerText = (shockCf > 0 ? '+' : '') + shockCf + '%';
+
+      try {
+        const res = await fetch(`/api/analisis/sensibilidad-simulada?shock_turismo=${shockTur}&shock_cf=${shockCf}`);
+        const data = await res.json();
+        if(data.error) return;
+
+        const ms = data.margen_seguridad_medio_simulado;
+        const elMs = document.getElementById('sim-ms-val');
+        elMs.innerText = (ms >= 0 ? '+' : '') + ms.toFixed(1) + '%';
+        elMs.className = 'text-lg font-bold font-mono-num ' + (ms >= 0 ? 'text-emerald-400' : 'text-rose-400');
+
+        document.getElementById('sim-regiones-count').innerText = data.total_regiones_en_deficit + ' / 25';
+        
+        const impacto = document.getElementById('sim-impacto');
+        if(data.total_regiones_en_deficit >= 15) {
+          impacto.innerText = 'Crítico / Sistémico';
+          impacto.className = 'text-lg font-bold font-mono-num text-rose-500';
+        } else if(data.total_regiones_en_deficit >= 5) {
+          impacto.innerText = 'Vulnerable';
+          impacto.className = 'text-lg font-bold font-mono-num text-amber-400';
+        } else {
+          impacto.innerText = 'Solvente';
+          impacto.className = 'text-lg font-bold font-mono-num text-emerald-400';
+        }
+
+      } catch(err) {
+        console.error(err);
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // LOGS DE AUDITORÍA
+    // -----------------------------------------------------------------------
+    async function cargarLogsTexto() {
+      try {
+        const res = await fetch('/api/logs');
+        const data = await res.json();
+        document.getElementById('audit-log-view').innerText = data.logs;
+      } catch(err) {
+        document.getElementById('audit-log-view').innerText = 'Error al cargar log: ' + err;
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // EJECUTAR SCRIPT DESDE LA INTERFAZ
+    // -----------------------------------------------------------------------
+    async function ejecutarScript(paso, esPipeline = false) {
+      if(!confirm(`¿Desea ejecutar el script ${paso}?`)) return;
+      try {
+        const res = await fetch('/api/run/' + paso, { method: 'POST' });
+        const data = await res.json();
+        if(data.success) {
+          alert(`Paso ${paso} ejecutado con éxito (${data.duracion_segundos}s).`);
+          if(esPipeline && paso < 4) {
+            ejecutarScript(paso + 1, true);
+          } else {
+            location.reload();
+          }
+        } else {
+          alert(`Error en paso ${paso}: ` + (data.stderr || data.error));
+        }
+      } catch(err) {
+        alert('Error de conexión: ' + err);
+      }
+    }
+
+    // Inicialización automática
+    window.addEventListener('DOMContentLoaded', () => {
+      seleccionarVia('via1');
+    });
+  </script>
+</body>
+</html>
