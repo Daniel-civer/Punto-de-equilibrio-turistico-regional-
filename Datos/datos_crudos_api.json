@@ -1,1 +1,2343 @@
-
+{
+  "metadatos": {
+    "fecha_extraccion": "2026-11-21T23:03:40.654747",
+    "rango_solicitado": {
+      "inicio": "2013-1",
+      "corte": "2025-12"
+    },
+    "fuentes": [
+      "BCRPData",
+      "Banco Mundial WDI"
+    ]
+  },
+  "bcrp": {
+    "config": {
+      "title": "Índice de precios Lima Metropolitana (índice 2009 = 100) (descontinuada)",
+      "series": [
+        {
+          "name": "Índice de precios Lima Metropolitana (índice 2009 = 100) (descontinuada) - Índice de Precios al Consumidor (IPC)",
+          "dec": "2"
+        },
+        {
+          "name": "Índice de precios Lima Metropolitana (índice 2009 = 100) (descontinuada) - IPC Sin Alimentos y Bebidas",
+          "dec": "2"
+        },
+        {
+          "name": "Producto bruto interno y demanda interna (índice 2007 = 100) - PBI",
+          "dec": "1"
+        }
+      ]
+    },
+    "periods": [
+      {
+        "name": "Ene.2013",
+        "values": [
+          "109.987788",
+          "106.621335670408",
+          "130.559992685857"
+        ]
+      },
+      {
+        "name": "Feb.2013",
+        "values": [
+          "109.891941",
+          "106.967813012575",
+          "129.079383033107"
+        ]
+      },
+      {
+        "name": "Mar.2013",
+        "values": [
+          "110.887497",
+          "108.024540411025",
+          "136.716103261567"
+        ]
+      },
+      {
+        "name": "Abr.2013",
+        "values": [
+          "111.167362",
+          "108.081495835075",
+          "141.786854263316"
+        ]
+      },
+      {
+        "name": "May.2013",
+        "values": [
+          "111.382566",
+          "108.002091306725",
+          "144.525170085063"
+        ]
+      },
+      {
+        "name": "Jun.2013",
+        "values": [
+          "111.674163",
+          "108.27657125398",
+          "144.131522429327"
+        ]
+      },
+      {
+        "name": "Jul.2013",
+        "values": [
+          "112.286672",
+          "108.681596018396",
+          "145.815158918084"
+        ]
+      },
+      {
+        "name": "Ago.2013",
+        "values": [
+          "112.896282",
+          "109.053362010742",
+          "143.654379670487"
+        ]
+      },
+      {
+        "name": "Sep.2013",
+        "values": [
+          "113.019091",
+          "109.222679542019",
+          "143.469503554971"
+        ]
+      },
+      {
+        "name": "Oct.2013",
+        "values": [
+          "113.062346",
+          "109.267395394462",
+          "147.44202969723"
+        ]
+      },
+      {
+        "name": "Nov.2013",
+        "values": [
+          "112.815595",
+          "109.434356446789",
+          "147.373533984173"
+        ]
+      },
+      {
+        "name": "Dic.2013",
+        "values": [
+          "113.002663",
+          "110.031624963818",
+          "158.721291667986"
+        ]
+      },
+      {
+        "name": "Ene.2014",
+        "values": [
+          "113.360708",
+          "110.050248448204",
+          "136.079802233256"
+        ]
+      },
+      {
+        "name": "Feb.2014",
+        "values": [
+          "114.041823",
+          "110.544691248834",
+          "135.801560872472"
+        ]
+      },
+      {
+        "name": "Mar.2014",
+        "values": [
+          "114.633197",
+          "111.44532756569",
+          "144.114837672392"
+        ]
+      },
+      {
+        "name": "Abr.2014",
+        "values": [
+          "115.08396",
+          "111.728610941369",
+          "145.93095375877"
+        ]
+      },
+      {
+        "name": "May.2014",
+        "values": [
+          "115.342934",
+          "111.851282603801",
+          "148.268520111495"
+        ]
+      },
+      {
+        "name": "Jun.2014",
+        "values": [
+          "115.526534",
+          "111.937409384749",
+          "144.676064849711"
+        ]
+      },
+      {
+        "name": "Jul.2014",
+        "values": [
+          "116.027125",
+          "112.201727880873",
+          "147.929033166191"
+        ]
+      },
+      {
+        "name": "Ago.2014",
+        "values": [
+          "115.927783",
+          "111.879011353038",
+          "145.598328396295"
+        ]
+      },
+      {
+        "name": "Sep.2014",
+        "values": [
+          "116.11385",
+          "111.960657543499",
+          "147.304981967072"
+        ]
+      },
+      {
+        "name": "Oct.2014",
+        "values": [
+          "116.553757",
+          "112.223177242466",
+          "150.794566036781"
+        ]
+      },
+      {
+        "name": "Nov.2014",
+        "values": [
+          "116.379555",
+          "112.238328080275",
+          "147.606279774666"
+        ]
+      },
+      {
+        "name": "Dic.2014",
+        "values": [
+          "116.645938",
+          "112.42446579616",
+          "159.982899480685"
+        ]
+      },
+      {
+        "name": "Ene.2015",
+        "values": [
+          "116.844581",
+          "112.153413951693",
+          "138.204498202026"
+        ]
+      },
+      {
+        "name": "Feb.2015",
+        "values": [
+          "117.199168",
+          "112.285676036407",
+          "137.477202190862"
+        ]
+      },
+      {
+        "name": "Mar.2015",
+        "values": [
+          "118.095348",
+          "113.367525166436",
+          "148.34699289631"
+        ]
+      },
+      {
+        "name": "Abr.2015",
+        "values": [
+          "118.556518",
+          "113.717588846364",
+          "152.057063495299"
+        ]
+      },
+      {
+        "name": "May.2015",
+        "values": [
+          "119.22561",
+          "114.416757147911",
+          "150.170961516218"
+        ]
+      },
+      {
+        "name": "Jun.2015",
+        "values": [
+          "119.621846",
+          "114.942098221465",
+          "150.586503927201"
+        ]
+      },
+      {
+        "name": "Jul.2015",
+        "values": [
+          "120.161085",
+          "115.66175184125",
+          "153.258350980469"
+        ]
+      },
+      {
+        "name": "Ago.2015",
+        "values": [
+          "120.614364",
+          "115.861019843695",
+          "149.484690625058"
+        ]
+      },
+      {
+        "name": "Sep.2015",
+        "values": [
+          "120.647579",
+          "115.882497668285",
+          "152.000860825852"
+        ]
+      },
+      {
+        "name": "Oct.2015",
+        "values": [
+          "120.819863",
+          "115.993427781173",
+          "155.730682873871"
+        ]
+      },
+      {
+        "name": "Nov.2015",
+        "values": [
+          "121.23557",
+          "116.079258675586",
+          "153.424811928952"
+        ]
+      },
+      {
+        "name": "Dic.2015",
+        "values": [
+          "121.775943",
+          "116.639826649085",
+          "170.392438282989"
+        ]
+      },
+      {
+        "name": "Ene.2016",
+        "values": [
+          "122.229583",
+          "116.70585179944",
+          "143.098357202023"
+        ]
+      },
+      {
+        "name": "Feb.2016",
+        "values": [
+          "122.442374",
+          "117.096892869778",
+          "146.309196635533"
+        ]
+      },
+      {
+        "name": "Mar.2016",
+        "values": [
+          "123.174724",
+          "117.790059177307",
+          "153.61243192688"
+        ]
+      },
+      {
+        "name": "Abr.2016",
+        "values": [
+          "123.188774",
+          "117.577250184929",
+          "156.263690478061"
+        ]
+      },
+      {
+        "name": "May.2016",
+        "values": [
+          "123.446933",
+          "118.0367304538",
+          "157.48954903612"
+        ]
+      },
+      {
+        "name": "Jun.2016",
+        "values": [
+          "123.619152",
+          "118.390974174251",
+          "155.975301304685"
+        ]
+      },
+      {
+        "name": "Jul.2016",
+        "values": [
+          "123.720207",
+          "118.603550155984",
+          "158.745901849584"
+        ]
+      },
+      {
+        "name": "Ago.2016",
+        "values": [
+          "124.163479",
+          "118.863547743865",
+          "158.115555861394"
+        ]
+      },
+      {
+        "name": "Sep.2016",
+        "values": [
+          "124.419832",
+          "119.058367317403",
+          "158.854564848149"
+        ]
+      },
+      {
+        "name": "Oct.2016",
+        "values": [
+          "124.934127",
+          "119.285627150806",
+          "159.126757232709"
+        ]
+      },
+      {
+        "name": "Nov.2016",
+        "values": [
+          "125.296516",
+          "119.688799247419",
+          "158.822599181097"
+        ]
+      },
+      {
+        "name": "Dic.2016",
+        "values": [
+          "125.715251",
+          "120.169752516644",
+          "176.321093387719"
+        ]
+      },
+      {
+        "name": "Ene.2017",
+        "values": [
+          "126.014256",
+          "120.298982086",
+          "150.276432717465"
+        ]
+      },
+      {
+        "name": "Feb.2017",
+        "values": [
+          "126.421498",
+          "120.248831730615",
+          "147.461285670951"
+        ]
+      },
+      {
+        "name": "Mar.2017",
+        "values": [
+          "128.07074",
+          "121.142892612485",
+          "155.400167035249"
+        ]
+      },
+      {
+        "name": "Abr.2017",
+        "values": [
+          "127.740249",
+          "121.234064258836",
+          "156.751508478455"
+        ]
+      },
+      {
+        "name": "May.2017",
+        "values": [
+          "127.199476",
+          "121.061092046441",
+          "163.251277944792"
+        ]
+      },
+      {
+        "name": "Jun.2017",
+        "values": [
+          "126.996976",
+          "121.10987521307",
+          "162.167774708857"
+        ]
+      },
+      {
+        "name": "Jul.2017",
+        "values": [
+          "127.248793",
+          "121.27887112855",
+          "162.286309678345"
+        ]
+      },
+      {
+        "name": "Ago.2017",
+        "values": [
+          "128.104192",
+          "121.860009648474",
+          "162.638412476959"
+        ]
+      },
+      {
+        "name": "Sep.2017",
+        "values": [
+          "128.08399",
+          "122.010244267198",
+          "164.1810899832"
+        ]
+      },
+      {
+        "name": "Oct.2017",
+        "values": [
+          "127.482962",
+          "122.038642459718",
+          "164.870806680147"
+        ]
+      },
+      {
+        "name": "Nov.2017",
+        "values": [
+          "127.231518",
+          "122.24929131959",
+          "162.050069285228"
+        ]
+      },
+      {
+        "name": "Dic.2017",
+        "values": [
+          "127.431083",
+          "122.678223072717",
+          "178.822860937088"
+        ]
+      },
+      {
+        "name": "Ene.2018",
+        "values": [
+          "127.593452",
+          "122.660863216801",
+          "154.592875234452"
+        ]
+      },
+      {
+        "name": "Feb.2018",
+        "values": [
+          "127.912717",
+          "123.094735792622",
+          "151.463758042883"
+        ]
+      },
+      {
+        "name": "Mar.2018",
+        "values": [
+          "128.535811",
+          "124.074279098189",
+          "161.431967543862"
+        ]
+      },
+      {
+        "name": "Abr.2018",
+        "values": [
+          "128.359623",
+          "124.106210561863",
+          "169.423665829414"
+        ]
+      },
+      {
+        "name": "May.2018",
+        "values": [
+          "128.383312",
+          "124.110950696298",
+          "174.2009640499"
+        ]
+      },
+      {
+        "name": "Jun.2018",
+        "values": [
+          "128.812187",
+          "124.457010420352",
+          "165.527593034563"
+        ]
+      },
+      {
+        "name": "Jul.2018",
+        "values": [
+          "129.305262",
+          "124.821481844788",
+          "166.517233721098"
+        ]
+      },
+      {
+        "name": "Ago.2018",
+        "values": [
+          "129.475644",
+          "124.952886180169",
+          "166.411982745936"
+        ]
+      },
+      {
+        "name": "Sep.2018",
+        "values": [
+          "129.723825",
+          "125.015996848165",
+          "168.105434901606"
+        ]
+      },
+      {
+        "name": "Oct.2018",
+        "values": [
+          "129.829788",
+          "125.136580580838",
+          "171.60453435013"
+        ]
+      },
+      {
+        "name": "Nov.2018",
+        "values": [
+          "129.988749",
+          "125.209506480558",
+          "170.249555667477"
+        ]
+      },
+      {
+        "name": "Dic.2018",
+        "values": [
+          "130.225039",
+          "125.569705882353",
+          "187.243182650937"
+        ]
+      },
+      {
+        "name": "Ene.2019",
+        "values": [
+          "130.310118",
+          "125.764174733863",
+          "157.193197527055"
+        ]
+      },
+      {
+        "name": "Feb.2019",
+        "values": [
+          "130.475301",
+          "125.987324638986",
+          "154.617113293077"
+        ]
+      },
+      {
+        "name": "Mar.2019",
+        "values": [
+          "131.424577",
+          "127.150411989837",
+          "166.89749978886"
+        ]
+      },
+      {
+        "name": "Abr.2019",
+        "values": [
+          "131.687532",
+          "127.280597562152",
+          "169.417386054755"
+        ]
+      },
+      {
+        "name": "May.2019",
+        "values": [
+          "131.881921",
+          "127.480400572476",
+          "175.401831131757"
+        ]
+      },
+      {
+        "name": "Jun.2019",
+        "values": [
+          "131.768144",
+          "127.505613964558",
+          "170.192831247473"
+        ]
+      },
+      {
+        "name": "Jul.2019",
+        "values": [
+          "132.036077",
+          "127.685153249928",
+          "173.06173485187"
+        ]
+      },
+      {
+        "name": "Ago.2019",
+        "values": [
+          "132.116589",
+          "127.718242369665",
+          "172.594321427108"
+        ]
+      },
+      {
+        "name": "Sep.2019",
+        "values": [
+          "132.125022",
+          "127.684626764867",
+          "172.360592193133"
+        ]
+      },
+      {
+        "name": "Oct.2019",
+        "values": [
+          "132.271318",
+          "128.116346283729",
+          "176.250970775075"
+        ]
+      },
+      {
+        "name": "Nov.2019",
+        "values": [
+          "132.415375",
+          "128.339010709806",
+          "174.183397196694"
+        ]
+      },
+      {
+        "name": "Dic.2019",
+        "values": [
+          "132.699434",
+          "128.712993921461",
+          "189.566260025411"
+        ]
+      },
+      {
+        "name": "Ene.2020",
+        "values": [
+          "132.770837",
+          "128.78801466568",
+          "162.385738087125"
+        ]
+      },
+      {
+        "name": "Feb.2020",
+        "values": [
+          "132.9596",
+          "128.854209468369",
+          "161.698428179546"
+        ]
+      },
+      {
+        "name": "Mar.2020",
+        "values": [
+          "133.818519",
+          "129.291072749493",
+          "137.513514528"
+        ]
+      },
+      {
+        "name": "Abr.2020",
+        "values": [
+          "133.95847",
+          "129.493325024925",
+          "102.875343532707"
+        ]
+      },
+      {
+        "name": "May.2020",
+        "values": [
+          "134.231951",
+          "129.454792397003",
+          "117.997641487312"
+        ]
+      },
+      {
+        "name": "Jun.2020",
+        "values": [
+          "133.874764",
+          "129.544089827292",
+          "139.382064668287"
+        ]
+      },
+      {
+        "name": "Jul.2020",
+        "values": [
+          "134.494187",
+          "129.678019007494",
+          "153.991673261532"
+        ]
+      },
+      {
+        "name": "Ago.2020",
+        "values": [
+          "134.345922",
+          "129.831239507285",
+          "156.775163672638"
+        ]
+      },
+      {
+        "name": "Sep.2020",
+        "values": [
+          "134.529108",
+          "130.045173994147",
+          "162.247835266957"
+        ]
+      },
+      {
+        "name": "Oct.2020",
+        "values": [
+          "134.551676",
+          "130.154038529573",
+          "170.514293400219"
+        ]
+      },
+      {
+        "name": "Nov.2020",
+        "values": [
+          "135.25199",
+          "130.52291367832",
+          "170.513324971153"
+        ]
+      },
+      {
+        "name": "Dic.2020",
+        "values": [
+          "135.317902",
+          "131.02973900878",
+          "191.519405008399"
+        ]
+      },
+      {
+        "name": "Ene.2021",
+        "values": [
+          "136.323181",
+          "131.410051780143",
+          "160.76619802336"
+        ]
+      },
+      {
+        "name": "Feb.2021",
+        "values": [
+          "136.152415",
+          "131.686565947319",
+          "155.519403928155"
+        ]
+      },
+      {
+        "name": "Mar.2021",
+        "values": [
+          "137.295372",
+          "132.595034573698",
+          "164.834993571958"
+        ]
+      },
+      {
+        "name": "Abr.2021",
+        "values": [
+          "137.151635",
+          "132.910994275239",
+          "164.492286036925"
+        ]
+      },
+      {
+        "name": "May.2021",
+        "values": [
+          "137.517223",
+          "132.95524876982",
+          "175.343695357749"
+        ]
+      },
+      {
+        "name": "Jun.2021",
+        "values": [
+          "138.231861",
+          "133.409067635802",
+          "172.012929904623"
+        ]
+      },
+      {
+        "name": "Jul.2021",
+        "values": [
+          "139.624601",
+          "134.306367188756",
+          "174.499180150954"
+        ]
+      },
+      {
+        "name": "Ago.2021",
+        "values": [
+          "140.999813",
+          "135.268760492715",
+          "175.606368609873"
+        ]
+      },
+      {
+        "name": "Sep.2021",
+        "values": [
+          "141.564408",
+          "135.421697970604",
+          "178.522991745203"
+        ]
+      },
+      {
+        "name": "Oct.2021",
+        "values": [
+          "142.39067",
+          "136.263045379989",
+          "178.646823045847"
+        ]
+      },
+      {
+        "name": "Nov.2021",
+        "values": [
+          "142.90069",
+          "136.994294053324",
+          "176.923593572592"
+        ]
+      },
+      {
+        "name": "Dic.2021",
+        "values": [
+          "144.019367",
+          "138.121052005274",
+          "195.423679290646"
+        ]
+      },
+      {
+        "name": "Ene.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "165.705479352297"
+        ]
+      },
+      {
+        "name": "Feb.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "163.05925121915"
+        ]
+      },
+      {
+        "name": "Mar.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "171.273598108185"
+        ]
+      },
+      {
+        "name": "Abr.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "171.169961181518"
+        ]
+      },
+      {
+        "name": "May.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "179.824800668156"
+        ]
+      },
+      {
+        "name": "Jun.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "178.434872205517"
+        ]
+      },
+      {
+        "name": "Jul.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "177.987942182027"
+        ]
+      },
+      {
+        "name": "Ago.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "179.134712364663"
+        ]
+      },
+      {
+        "name": "Sep.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "182.374711989312"
+        ]
+      },
+      {
+        "name": "Oct.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "183.291728001538"
+        ]
+      },
+      {
+        "name": "Nov.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "180.809032415482"
+        ]
+      },
+      {
+        "name": "Dic.2022",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "197.935840561143"
+        ]
+      },
+      {
+        "name": "Ene.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "164.747248759875"
+        ]
+      },
+      {
+        "name": "Feb.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "162.489203079216"
+        ]
+      },
+      {
+        "name": "Mar.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "172.699133230943"
+        ]
+      },
+      {
+        "name": "Abr.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "172.353130034136"
+        ]
+      },
+      {
+        "name": "May.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "177.719176835292"
+        ]
+      },
+      {
+        "name": "Jun.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "177.192993277921"
+        ]
+      },
+      {
+        "name": "Jul.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "176.179873816439"
+        ]
+      },
+      {
+        "name": "Ago.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "179.244835514059"
+        ]
+      },
+      {
+        "name": "Sep.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "180.721017976619"
+        ]
+      },
+      {
+        "name": "Oct.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "182.041114444157"
+        ]
+      },
+      {
+        "name": "Nov.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "182.076781161936"
+        ]
+      },
+      {
+        "name": "Dic.2023",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "196.064002329094"
+        ]
+      },
+      {
+        "name": "Ene.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "167.763729071427"
+        ]
+      },
+      {
+        "name": "Feb.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "167.627777899434"
+        ]
+      },
+      {
+        "name": "Mar.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "171.991601943114"
+        ]
+      },
+      {
+        "name": "Abr.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "181.884033744884"
+        ]
+      },
+      {
+        "name": "May.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "187.861455834207"
+        ]
+      },
+      {
+        "name": "Jun.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "177.84964450269"
+        ]
+      },
+      {
+        "name": "Jul.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "184.739893585405"
+        ]
+      },
+      {
+        "name": "Ago.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "186.36135917895"
+        ]
+      },
+      {
+        "name": "Sep.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "187.029143584624"
+        ]
+      },
+      {
+        "name": "Oct.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "189.015297801315"
+        ]
+      },
+      {
+        "name": "Nov.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "190.055398147607"
+        ]
+      },
+      {
+        "name": "Dic.2024",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "205.997040254343"
+        ]
+      },
+      {
+        "name": "Ene.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "175.149967722441"
+        ]
+      },
+      {
+        "name": "Feb.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "172.413387663862"
+        ]
+      },
+      {
+        "name": "Mar.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "180.301149727978"
+        ]
+      },
+      {
+        "name": "Abr.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "184.382408409688"
+        ]
+      },
+      {
+        "name": "May.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "191.607520174195"
+        ]
+      },
+      {
+        "name": "Jun.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "186.845736011489"
+        ]
+      },
+      {
+        "name": "Jul.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "191.529033282344"
+        ]
+      },
+      {
+        "name": "Ago.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "191.224336179192"
+        ]
+      },
+      {
+        "name": "Sep.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "195.448373768798"
+        ]
+      },
+      {
+        "name": "Oct.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "197.113162221401"
+        ]
+      },
+      {
+        "name": "Nov.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "193.176657027969"
+        ]
+      },
+      {
+        "name": "Dic.2025",
+        "values": [
+          "n.d.",
+          "n.d.",
+          "214.394422820143"
+        ]
+      }
+    ]
+  },
+  "banco_mundial": {
+    "arribos_internacionales": [
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2025",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2024",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2023",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2022",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2021",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2020",
+        "value": 1119000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2019",
+        "value": 5275000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2018",
+        "value": 5384000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2017",
+        "value": 4992000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2016",
+        "value": 4718000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2015",
+        "value": 4381000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2014",
+        "value": 4062000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2013",
+        "value": 4010000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2012",
+        "value": 3642000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2011",
+        "value": 3299000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2010",
+        "value": 2948000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2009",
+        "value": 2681000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2008",
+        "value": 2581000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2007",
+        "value": 2451000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2006",
+        "value": 2227000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2005",
+        "value": 1938000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2004",
+        "value": 1650000,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2003",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2002",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2001",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "2000",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1999",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1998",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1997",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1996",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1995",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1994",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1993",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1992",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1991",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1990",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1989",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1988",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1987",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1986",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1985",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1984",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1983",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1982",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1981",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1980",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1979",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1978",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1977",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1976",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1975",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1974",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1973",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1972",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1971",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1970",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1969",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1968",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1967",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1966",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1965",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1964",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1963",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1962",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1961",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      },
+      {
+        "indicator": {
+          "id": "ST.INT.ARVL",
+          "value": "International tourism, number of arrivals"
+        },
+        "country": {
+          "id": "PE",
+          "value": "Peru"
+        },
+        "countryiso3code": "PER",
+        "date": "1960",
+        "value": null,
+        "unit": "",
+        "obs_status": "",
+        "decimal": 0
+      }
+    ],
+    "ingresos_turismo_usd": []
+  }
+}
