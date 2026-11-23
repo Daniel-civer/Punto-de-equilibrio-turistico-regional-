@@ -1,0 +1,5 @@
+,Coeficiente,Error_Estandar,t_stat,p_valor
+Intercept,-52.9152,5.8477,-9.0488,0.0
+log_arribos_totales,7.6725,0.6191,12.3934,0.0
+bcrp_pbi_indice,0.034,0.0118,2.89,0.0039
+bcrp_tasa_referencia,0.0287,0.0128,2.2358,0.0254
