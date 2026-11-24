@@ -1,7 +1,7 @@
 # GUÍA DE EXPOSICIÓN Y DEFENSA DEL ARTÍCULO
 ## Curso: Finanzas I (055D) — UNCP | Cátedra: Dr. Ciro Iván Machacuay Meza
 **Tema:** Punto de equilibrio y sensibilidad en un proyecto turístico regional  
-**Expositores:** Daniel Ricardo Sulca Castro & Compañero  
+**Expositores:** Daniel Ricardo Sulca Castro 
 **Código de Matrícula:** 2024200532L (e_2024200532L@uncp.edu.pe)  
 **Tiempo estimado:** 8 a 10 minutos + ronda de preguntas  
 
