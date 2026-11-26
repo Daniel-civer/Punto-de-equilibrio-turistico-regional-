@@ -8,7 +8,7 @@
 - [x] Revisión exhaustiva de la rúbrica y consignas (Criterios de la Unidad II).
 - [x] Análisis del modelo de referencia (presentación de Renzo Ignacio Paucar y repositorio de Xiomara Turín).
 - [x] Creación de `ESPECIFICACIONES_PROYECTO.md` con objetivos, fórmulas y variables.
-- [ ] Validación con el usuario: confirmar datos del estudiante (Nombres, Código de matrícula) para personalizar el encabezado del README y scripts.
+
 
 ---
 
